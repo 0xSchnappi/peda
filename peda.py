@@ -1844,7 +1844,7 @@ class PEDA(object):
 
     def xormem(self, start, end, key):
         """
-        XOR a memory region with a key
+        用密钥对内存区域进行 XOR 操作
 
         Args:
             - start: start address (Int)
@@ -1947,7 +1947,7 @@ class PEDA(object):
     @memoized
     def search_reference(self, search, mapname=None):
         """
-        Search for all references to a value in memory ranges
+        在内存范围内搜索某个值的所有引用
 
         Args:
             - search: string or python regex pattern (String)
@@ -2521,7 +2521,7 @@ class PEDA(object):
 
     def checksec(self, filename=None):
         """
-        Check for various security options of binary (ref: http://www.trapkit.de/tools/checksec.sh)
+        检查二进制文件的各种安全选项 (ref: http://www.trapkit.de/tools/checksec.sh)
 
         Args:
             - file: path name of file to check (String)
@@ -2604,7 +2604,7 @@ class PEDA(object):
     @memoized
     def search_asm(self, start, end, asmcode, rop=0):
         """
-        Search for ASM instructions in memory
+        在内存中搜索汇编（ASM）指令
 
         Args:
             - start: start address (Int)
@@ -2854,7 +2854,7 @@ class PEDA(object):
 
     def search_substr(self, start, end, search, mem=None):
         """
-        Search for substrings of a given string/number in memory
+        在内存中搜索给定字符串/数字的子字符串
 
         Args:
             - start: start address (Int)
@@ -3049,7 +3049,7 @@ class PEDACmd(object):
 
     def reload(self, *arg):
         """
-        Reload PEDA sources, keep current options untouch
+        重新加载 PEDA 源码，保持当前选项不变h
         Usage:
             MYNAME [name]
         """
@@ -3114,7 +3114,7 @@ class PEDACmd(object):
 
     def help(self, *arg):
         """
-        Print the usage manual for PEDA commands
+        打印 PEDA 命令的使用手册
         Usage:
             MYNAME
             MYNAME command
@@ -3127,7 +3127,7 @@ class PEDACmd(object):
 
     def pyhelp(self, *arg):
         """
-        Wrapper for python built-in help
+        Python 内置帮助的包装器
         Usage:
             MYNAME (enter interactive help)
             MYNAME help_request
@@ -3162,7 +3162,7 @@ class PEDACmd(object):
                 mod = sys.modules['__main__']
                 request = getattr(mod, request)
 
-            # wrapper for python built-in help
+            # Python 内置帮助的包装器
             help(request)
         except: # fallback to built-in help
             try:
@@ -3180,7 +3180,7 @@ class PEDACmd(object):
     # show [option | args | env]
     def show(self, *arg):
         """
-        Show various PEDA options and other settings
+        显示各种 PEDA 选项和其他设置
         Usage:
             MYNAME option [optname]
             MYNAME (show all options)
@@ -3241,7 +3241,7 @@ class PEDACmd(object):
     # set [option | arg | env]
     def set(self, *arg):
         """
-        Set various PEDA options and other settings
+        设置各种 PEDA 选项和其他设置
         Usage:
             MYNAME option name value
             MYNAME arg string
@@ -3303,7 +3303,7 @@ class PEDACmd(object):
 
     def hexprint(self, *arg):
         """
-        Display hexified of data in memory
+        显示内存中数据的十六进制表示
         Usage:
             MYNAME address (display 16 bytes from address)
             MYNAME address count
@@ -3338,7 +3338,7 @@ class PEDACmd(object):
 
     def hexdump(self, *arg):
         """
-        Display hex/ascii dump of data in memory
+        显示内存中的十六进制/ASCII 转储数据
         Usage:
             MYNAME address (dump 16 bytes from address)
             MYNAME address count
@@ -3381,7 +3381,7 @@ class PEDACmd(object):
 
     def aslr(self, *arg):
         """
-        Show/set ASLR setting of GDB
+        显示/设置 GDB 的地址空间布局随机化（ASLR）设置
         Usage:
             MYNAME [on|off]
         """
@@ -3405,7 +3405,7 @@ class PEDACmd(object):
 
     def xprint(self, *arg):
         """
-        Extra support to GDB's print command
+        扩展支持 GDB 的 print 命令
         Usage:
             MYNAME expression
         """
@@ -3426,7 +3426,7 @@ class PEDACmd(object):
 
     def distance(self, *arg):
         """
-        Calculate distance between two addresses
+        计算两个地址之间的距离
         Usage:
             MYNAME address (calculate from current $SP to address)
             MYNAME address1 address2
@@ -3450,7 +3450,7 @@ class PEDACmd(object):
 
     def session(self, *arg):
         """
-        Save/restore a working gdb session to file as a script
+        保存/恢复工作中的 GDB 会话到文件作为脚本
         Usage:
             MYNAME save [filename]
             MYNAME restore [filename]
@@ -3487,7 +3487,7 @@ class PEDACmd(object):
     #################################
     def procinfo(self, *arg):
         """
-        Display various info from /proc/pid/
+        从 /proc/pid/ 显示各种信息
         Usage:
             MYNAME [pid]
         """
@@ -3544,7 +3544,7 @@ class PEDACmd(object):
     # getfile()
     def getfile(self):
         """
-        Get exec filename of current debugged process
+        获取当前调试进程的可执行文件名
         Usage:
             MYNAME
         """
@@ -3558,7 +3558,7 @@ class PEDACmd(object):
     # getpid()
     def getpid(self):
         """
-        Get PID of current debugged process
+        获取当前调试进程的 PID
         Usage:
             MYNAME
         """
@@ -3569,7 +3569,7 @@ class PEDACmd(object):
     # disassemble()
     def pdisass(self, *arg):
         """
-        Format output of gdb disassemble command with colors
+        用颜色格式化 gdb 反汇编命令的输出
         Usage:
             MYNAME "args for gdb disassemble command"
             MYNAME address /NN: equivalent to "x/NNi address"
@@ -3590,7 +3590,7 @@ class PEDACmd(object):
     # disassemble_around
     def nearpc(self, *arg):
         """
-        Disassemble instructions nearby current PC or given address
+        反汇编当前 PC 或指定地址附近的指令
         Usage:
             MYNAME [count]
             MYNAME address [count]
@@ -3620,7 +3620,7 @@ class PEDACmd(object):
 
     def waitfor(self, *arg):
         """
-        Try to attach to new forked process; mimic "attach -waitfor"
+        尝试附加到新创建的子进程；模拟 "attach -waitfor"
         Usage:
             MYNAME [cmdname]
             MYNAME [cmdname] -c (auto continue after attached)
@@ -3673,7 +3673,7 @@ class PEDACmd(object):
 
     def pltbreak(self, *arg):
         """
-        Set breakpoint at PLT functions match name regex
+        在匹配名称正则表达式的 PLT 函数设置断点
         Usage:
             MYNAME [name]
         """
@@ -3697,7 +3697,7 @@ class PEDACmd(object):
 
     def xrefs(self, *arg):
         """
-        Search for all call/data access references to a function/variable
+        搜索对函数/变量的所有调用/数据访问引用
         Usage:
             MYNAME pattern
             MYNAME pattern file/mapname
@@ -3727,7 +3727,7 @@ class PEDACmd(object):
 
     def deactive(self, *arg):
         """
-        Bypass a function by ignoring its execution (eg sleep/alarm)
+        通过忽略函数的执行来绕过该函数（例如 sleep/alarm
         Usage:
             MYNAME function
             MYNAME function del (re-active)
@@ -3795,7 +3795,7 @@ class PEDACmd(object):
 
     def unptrace(self, *arg):
         """
-        Disable anti-ptrace detection
+        禁用反 ptrace 检测
         Usage:
             MYNAME
             MYNAME del
@@ -3841,7 +3841,7 @@ class PEDACmd(object):
     # get_function_args()
     def dumpargs(self, *arg):
         """
-        Display arguments passed to a function when stopped at a call instruction
+        在停止于调用指令时显示传递给函数的参数
         Usage:
             MYNAME [count]
                 count: force to display "count args" instead of guessing
@@ -3864,7 +3864,7 @@ class PEDACmd(object):
 
     def xuntil(self, *arg):
         """
-        Continue execution until an address or function
+        继续执行直到某个地址或函数
         Usage:
             MYNAME address | function
         """
@@ -3882,7 +3882,7 @@ class PEDACmd(object):
 
     def goto(self, *arg):
         """
-        Continue execution at an address
+        在指定地址继续执行
         Usage:
             MYNAME address
         """
@@ -3896,7 +3896,7 @@ class PEDACmd(object):
 
     def skipi(self, *arg):
         """
-        Skip execution of next count instructions
+        跳过执行下一条指令
         Usage:
             MYNAME [count]
         """
@@ -3918,7 +3918,7 @@ class PEDACmd(object):
 
     def start(self, *arg):
         """
-        Start debugged program and stop at most convenient entry
+        启动调试程序并在最方便的入口点停止
         Usage:
             MYNAME
         """
@@ -3950,7 +3950,7 @@ class PEDACmd(object):
     # stepuntil()
     def stepuntil(self, *arg):
         """
-        Step until a desired instruction in specific memory range
+        单步执行直到指定内存范围内的某个指令
         Usage:
             MYNAME "inst1,inst2" (step to next inst in binary)
             MYNAME "inst1,inst2" mapname1,mapname2
@@ -3974,7 +3974,7 @@ class PEDACmd(object):
     # wrapper for stepuntil("call")
     def nextcall(self, *arg):
         """
-        Step until next 'call' instruction in specific memory range
+        在指定的内存范围内单步执行直到下一个 'call' 指令
         Usage:
             MYNAME [keyword] [mapname1,mapname2]
         """
@@ -3989,7 +3989,7 @@ class PEDACmd(object):
     # wrapper for stepuntil("j")
     def nextjmp(self, *arg):
         """
-        Step until next 'j*' instruction in specific memory range
+        在指定的内存范围内单步执行直到下一个 'j*' 指令
         Usage:
             MYNAME [keyword] [mapname1,mapname2]
         """
@@ -4004,7 +4004,7 @@ class PEDACmd(object):
     #stepuntil()
     def tracecall(self, *arg):
         """
-        Trace function calls made by the program
+        跟踪程序所做的函数调用
         Usage:
             MYNAME ["func1,func2"] [mapname1,mapname2]
             MYNAME ["-func1,func2"] [mapname1,mapname2] (inverse)
@@ -4089,7 +4089,7 @@ class PEDACmd(object):
     # stepuntil()
     def traceinst(self, *arg):
         """
-        Trace specific instructions executed by the program
+        跟踪程序所执行的特定指令
         Usage:
             MYNAME ["inst1,inst2"] [mapname1,mapname2]
             MYNAME count (trace execution of next count instrcutions)
@@ -4177,7 +4177,7 @@ class PEDACmd(object):
 
     def profile(self, *arg):
         """
-        Simple profiling to count executed instructions in the program
+        通过计算程序中执行的指令数进行简单的分析
         Usage:
             MYNAME count [keyword]
                 default is to count instructions inside the program only
@@ -4241,7 +4241,7 @@ class PEDACmd(object):
     @msg.bufferize
     def context_register(self, *arg):
         """
-        Display register information of current execution context
+        显示当前执行上下文的寄存器信息
         Usage:
             MYNAME
         """
@@ -4258,7 +4258,7 @@ class PEDACmd(object):
     @msg.bufferize
     def context_code(self, *arg):
         """
-        Display nearby disassembly at $PC of current execution context
+        显示当前执行上下文中 $PC 附近的反汇编代码
         Usage:
             MYNAME [linecount]
         """
@@ -4328,7 +4328,7 @@ class PEDACmd(object):
     @msg.bufferize
     def context_stack(self, *arg):
         """
-        Display stack of current execution context
+        显示当前执行上下文的堆栈信息
         Usage:
             MYNAME [linecount]
         """
@@ -4349,7 +4349,7 @@ class PEDACmd(object):
 
     def context(self, *arg):
         """
-        Display various information of current execution context
+        显示当前执行上下文的各种信息
         Usage:
             MYNAME [reg,code,stack,all] [code/stack length]
         """
@@ -4398,7 +4398,7 @@ class PEDACmd(object):
 
     def breakrva(self, *arg):
         """
-        Set breakpoint by Relative Virtual Address (RVA)
+        按相对虚拟地址（RVA）设置断点
         Usage:
             MYNAME rva
             MYNAME rva module_name (e.g binary, shared module name)
@@ -4423,7 +4423,7 @@ class PEDACmd(object):
     # get_vmmap()
     def vmmap(self, *arg):
         """
-        Get virtual mapping address ranges of section(s) in debugged process
+        获取调试进程的节段的虚拟映射地址范围
         Usage:
             MYNAME [mapname] (e.g binary, all, libc, stack)
             MYNAME address (find mapname contains this address)
@@ -4457,7 +4457,7 @@ class PEDACmd(object):
     # writemem()
     def patch(self, *arg):
         """
-        Patch memory start at an address with string/hexstring/int
+        用字符串/十六进制字符串/整数修补从某个地址开始的内存
         Usage:
             MYNAME address (multiple lines input)
             MYNAME address "string"
@@ -4506,7 +4506,7 @@ class PEDACmd(object):
     # dumpmem()
     def dumpmem(self, *arg):
         """
-        Dump content of a memory region to raw binary file
+        将内存区域的内容转储为原始二进制文件
         Usage:
             MYNAME file start end
             MYNAME file mapname
@@ -4543,7 +4543,7 @@ class PEDACmd(object):
     # loadmem()
     def loadmem(self, *arg):
         """
-        Load contents of a raw binary file to memory
+        将原始二进制文件的内容加载到内存中
         Usage:
             MYNAME file address [size]
         """
@@ -4573,7 +4573,7 @@ class PEDACmd(object):
     # cmpmem()
     def cmpmem(self, *arg):
         """
-        Compare content of a memory region with a file
+        将内存区域的内容与文件进行比较
         Usage:
             MYNAME start end file
         """
@@ -4616,7 +4616,7 @@ class PEDACmd(object):
     # xormem()
     def xormem(self, *arg):
         """
-        XOR a memory region with a key
+        用密钥对内存区域进行 XOR 操作
         Usage:
             MYNAME start end key
         """
@@ -4633,7 +4633,7 @@ class PEDACmd(object):
     # searchmem(), searchmem_by_range()
     def searchmem(self, *arg):
         """
-        Search for a pattern in memory; support regex search
+        在内存中搜索模式；支持正则表达式搜索
         Usage:
             MYNAME pattern start end
             MYNAME pattern mapname
@@ -4665,7 +4665,7 @@ class PEDACmd(object):
     # search_reference()
     def refsearch(self, *arg):
         """
-        Search for all references to a value in memory ranges
+        在内存范围内搜索某个值的所有引用
         Usage:
             MYNAME value mapname
             MYNAME value (search in all memory ranges)
@@ -4688,7 +4688,7 @@ class PEDACmd(object):
     # search_address(), search_pointer()
     def lookup(self, *arg):
         """
-        Search for all addresses/references to addresses which belong to a memory range
+        搜索属于某个内存范围的所有地址/引用地址
         Usage:
             MYNAME address searchfor belongto
             MYNAME pointer searchfor belongto
@@ -4719,7 +4719,7 @@ class PEDACmd(object):
     # examine_mem_reference()
     def telescope(self, *arg):
         """
-        Display memory content at an address with smart dereferences
+        显示某个地址的内存内容并进行智能解引用
         Usage:
             MYNAME [linecount] (analyze at current $SP)
             MYNAME address [linecount]
@@ -4773,7 +4773,7 @@ class PEDACmd(object):
 
     def eflags(self, *arg):
         """
-        Display/set/clear/toggle value of eflags register
+        显示/设置/清除/切换 eflags 寄存器的值
         Usage:
             MYNAME
             MYNAME [set|clear|toggle] flagname
@@ -4815,7 +4815,7 @@ class PEDACmd(object):
 
     def xinfo(self, *arg):
         """
-        Display detail information of address/registers
+        显示地址/寄存器的详细信息
         Usage:
             MYNAME address
             MYNAME register [reg1 reg2]
@@ -4875,7 +4875,7 @@ class PEDACmd(object):
 
     def strings(self, *arg):
         """
-        Display printable strings in memory
+        显示内存中的可打印字符串
         Usage:
             MYNAME start end [minlen]
             MYNAME mapname [minlen]
@@ -4918,7 +4918,7 @@ class PEDACmd(object):
 
     def sgrep(self, *arg):
         """
-        Search for full strings contain the given pattern
+        搜索包含给定模式的完整字符串
         Usage:
             MYNAME pattern start end
             MYNAME pattern mapname
@@ -4944,7 +4944,7 @@ class PEDACmd(object):
     # elfheader()
     def elfheader(self, *arg):
         """
-        Get headers information from debugged ELF file
+        获取调试 ELF 文件的头信息
         Usage:
             MYNAME [header_name]
         """
@@ -4964,7 +4964,7 @@ class PEDACmd(object):
     # readelf_header(), elfheader_solib()
     def readelf(self, *arg):
         """
-        Get headers information from an ELF file
+         获取 ELF 文件的头信息
         Usage:
             MYNAME mapname [header_name]
             MYNAME filename [header_name]
@@ -4993,7 +4993,7 @@ class PEDACmd(object):
     # elfsymbol()
     def elfsymbol(self, *arg):
         """
-        Get non-debugging symbol information from an ELF file
+        获取 ELF 文件中的非调试符号信息
         Usage:
             MYNAME symbol_name
         """
@@ -5017,7 +5017,7 @@ class PEDACmd(object):
     # checksec()
     def checksec(self, *arg):
         """
-        Check for various security options of binary
+        检查二进制文件的各种安全选项
         For full features, use http://www.trapkit.de/tools/checksec.sh
         Usage:
             MYNAME [file]
@@ -5039,7 +5039,7 @@ class PEDACmd(object):
 
     def nxtest(self, *arg):
         """
-        Perform real NX test to see if it is enabled/supported by OS
+         执行实际的 NX 测试以查看其是否由操作系统启用/支持
         Usage:
             MYNAME [address]
         """
@@ -5082,7 +5082,7 @@ class PEDACmd(object):
     # search_asm()
     def asmsearch(self, *arg):
         """
-        Search for ASM instructions in memory
+        在内存中搜索汇编（ASM）指令
         Usage:
             MYNAME "asmcode" start end
             MYNAME "asmcode" mapname
@@ -5121,7 +5121,7 @@ class PEDACmd(object):
     # search_asm()
     def ropsearch(self, *arg):
         """
-        Search for ROP gadgets in memory
+         在内存中搜索 ROP 小工具
             Note: only for simple gadgets, for full ROP search try: http://ropshell.com
         Usage:
             MYNAME "gadget" start end
@@ -5164,7 +5164,7 @@ class PEDACmd(object):
     # dumprop()
     def dumprop(self, *arg):
         """
-        Dump all ROP gadgets in specific memory range
+        在指定的内存范围内转储所有 ROP 小工具
             Note: only for simple gadgets, for full ROP search try: http://ropshell.com
             Warning: this can be very slow, do not run for big memory range
         Usage:
@@ -5219,7 +5219,7 @@ class PEDACmd(object):
     # common_rop_gadget()
     def ropgadget(self, *arg):
         """
-        Get common ROP gadgets of binary or library
+        获取二进制或库的常见 ROP 小工具
         Usage:
             MYNAME [mapname]
         """
@@ -5239,7 +5239,7 @@ class PEDACmd(object):
     # search_jmpcall()
     def jmpcall(self, *arg):
         """
-        Search for JMP/CALL instructions in memory
+        在内存中搜索 JMP/CALL 指令
         Usage:
             MYNAME (search all JMP/CALL in current binary)
             MYNAME reg [mapname]
@@ -5278,7 +5278,7 @@ class PEDACmd(object):
     # cyclic_pattern()
     def pattern_create(self, *arg):
         """
-        Generate a cyclic pattern
+        生成循环模式
         Set "pattern" option for basic/extended pattern type
         Usage:
             MYNAME size [file]
@@ -5300,7 +5300,7 @@ class PEDACmd(object):
     # cyclic_pattern()
     def pattern_offset(self, *arg):
         """
-        Search for offset of a value in cyclic pattern
+        搜索循环模式中某个值的偏移量
         Set "pattern" option for basic/extended pattern type
         Usage:
             MYNAME value
@@ -5321,7 +5321,7 @@ class PEDACmd(object):
     # cyclic_pattern(), searchmem_*()
     def pattern_search(self, *arg):
         """
-        Search a cyclic pattern in registers and memory
+         在寄存器和内存中搜索循环模式
         Set "pattern" option for basic/extended pattern type
         Usage:
             MYNAME
@@ -5418,7 +5418,7 @@ class PEDACmd(object):
     # cyclic_pattern(), writemem()
     def pattern_patch(self, *arg):
         """
-        Write a cyclic pattern to memory
+        将循环模式写入内存
         Set "pattern" option for basic/extended pattern type
         Usage:
             MYNAME address size
@@ -5440,7 +5440,7 @@ class PEDACmd(object):
     # cyclic_pattern()
     def pattern_arg(self, *arg):
         """
-        Set argument list with cyclic pattern
+        设置带有循环模式的参数列表
         Set "pattern" option for basic/extended pattern type
         Usage:
             MYNAME size1 [size2,offset2] ...
@@ -5476,7 +5476,7 @@ class PEDACmd(object):
     # cyclic_pattern()
     def pattern_env(self, *arg):
         """
-        Set environment variable with a cyclic pattern
+        使用循环模式设置环境变量
         Set "pattern" option for basic/extended pattern type
         Usage:
             MYNAME ENVNAME size[,offset]
@@ -5502,7 +5502,7 @@ class PEDACmd(object):
 
     def pattern(self, *arg):
         """
-        Generate, search, or write a cyclic pattern to memory
+        生成、搜索或将循环模式写入内存
         Set "pattern" option for basic/extended pattern type
         Usage:
             MYNAME create size [file]
@@ -5526,7 +5526,7 @@ class PEDACmd(object):
 
     def substr(self, *arg):
         """
-        Search for substrings of a given string/number in memory
+        在内存中搜索给定字符串/数字的子字符串
         Commonly used for ret2strcpy ROP exploit
         Usage:
             MYNAME "string" start end
@@ -5570,7 +5570,7 @@ class PEDACmd(object):
 
     def assemble(self, *arg):
         """
-        On the fly assemble and execute instructions using NASM
+        使用 NASM 即时汇编和执行指令
         Usage:
             MYNAME [mode] [address]
                 mode: -b16 / -b32 / -b64
@@ -5649,7 +5649,7 @@ class PEDACmd(object):
     ####################################
     def skeleton(self, *arg):
         """
-        Generate python exploit code template
+        生成 Python Exploit 代码模板
         Usage:
             MYNAME type [file]
                 type = argv: local exploit via argument
@@ -5685,7 +5685,7 @@ class PEDACmd(object):
 
     def shellcode(self, *arg):
         """
-        Generate or download common shellcodes.
+        生成或下载常见的 shellcodes
         Usage:
             MYNAME generate [arch/]platform type [port] [host]
             MYNAME search keyword (use % for any character wildcard)
@@ -5835,7 +5835,7 @@ class PEDACmd(object):
 
     def gennop(self, *arg):
         """
-        Generate abitrary length NOP sled using given characters
+        使用给定字符生成任意长度的 NOP sled
         Usage:
             MYNAME size [chars]
         """
@@ -5850,7 +5850,7 @@ class PEDACmd(object):
 
     def payload(self, *arg):
         """
-        Generate various type of ROP payload using ret2plt
+        使用 ret2plt 生成各种类型的 ROP 负载
         Usage:
             MYNAME copybytes (generate function template for ret2strcpy style payload)
             MYNAME copybytes dest1 data1 dest2 data2 ...
@@ -5891,7 +5891,7 @@ class PEDACmd(object):
 
     def snapshot(self, *arg):
         """
-        Save/restore process's snapshot to/from file
+        保存/恢复进程的快照到/从文件
         Usage:
             MYNAME save file
             MYNAME restore file
@@ -5923,7 +5923,7 @@ class PEDACmd(object):
 
     def crashdump(self, *arg):
         """
-        Display crashdump info and save to file
+        显示崩溃转储信息并保存到文件
         Usage:
             MYNAME [reason_text]
         """
@@ -5963,7 +5963,7 @@ class PEDACmd(object):
 
     def utils(self, *arg):
         """
-        Miscelaneous utilities from utils module
+        来自 utils 模块的杂项工具
         Usage:
             MYNAME command arg
         """

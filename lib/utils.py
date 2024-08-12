@@ -633,7 +633,7 @@ def de_bruijn(charset, n, maxlen):
 @memoized
 def cyclic_pattern(size=None, start=None, charset_type=None):
     """
-    Generate a cyclic pattern
+    生成循环模式
 
     Args:
         - size: size of generated pattern (Int)
